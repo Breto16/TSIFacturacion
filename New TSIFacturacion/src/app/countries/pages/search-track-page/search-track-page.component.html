@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col">
+    <div class="row">
+        <div class="col">
+            <shared-search-box
+                [placeholder]="'Buscar Canciones'"
+                (onValue)="searchTrack($event)"
+            ></shared-search-box>
+        </div>      
+    </div>
+    <div class="row">
+        <div class="col-12 pt-2">
+            
+            <gifs-card-list [TopCanciones]="TopCanciones"></gifs-card-list> 
+        </div>
+    </div>
+    </div>
+  </div>

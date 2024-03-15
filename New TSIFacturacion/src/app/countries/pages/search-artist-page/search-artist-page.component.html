@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="col">
+
+    <div class="row">
+        <div class="col">
+            <shared-search-box
+                [placeholder]="'Buscar Artistas'"
+                (onValue)="searchArtist($event)"
+            ></shared-search-box>
+        </div>      
+    </div>
+    <div class="row">
+        <div class="col-12 pt-2">
+            <hr>
+            <div class="row">
+                @for (item of Artistas?.artists?.items; track $index) {
+                    
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card mb-2 mr-2 ml-2 text-center"  style="background-color: #101214;" >
+                                    <div class="square-container">
+                                    @if (item.images.length === 0) {
+                                        
+                                            <img class="card-img-top rounded-circle img-fluid" src="..\..\..\..\assets\rings.svg" alt="Card image">
+                                          
+                                          }
+                                    @else{  
+                                                <img class="card-img-top " [src]="item.images[0].url" alt="Card image">
+                                            }
+                                    </div>
+                                    <div class="card-body text-light">
+                                      <h3 class="card-title">{{item.name}}</h3>
+                                      <p>Seguidores: {{item.followers.total | number:'1.0-0' }}</p>
+                                      <h4> @for (genero of item.genres; track $index) {
+                                    
+                                        
+                                         <span class="badge badge-primary bg-success m-1">{{genero}}</span>
+                                        
+                                        
+                                      }
+                                      <a class="stretched-link" [routerLink]="['/search/by', item.id]"></a>
+                                      
+                                    </h4>
+                            
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                }
+                  
+                    
+                
+        </div>        
+        </div>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,52 @@
+
+@if (!tracks) {
+    <div class="alert alert-info">
+        No hay canciones para mostrar
+    </div>
+}@else{
+    <table class="table table-dark table_custom table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Canción</th>
+                <th scope="col">Album</th>
+                <th scope="col">Escuchar</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of tracks.items; track $index) {
+                <tr class="align-middle">
+                    <td>{{$index+1}}</td>
+                    
+                    <td>
+                        <img [src]="item.track.album.images[1].url" height="80" width="80" class="img-fluid rounded">
+                        
+                        
+                    </td>
+                    <td><h4>{{item.track.name}}</h4>@if (item.track.explicit) {
+                        <span class="badge badge-danger bg-secondary">E</span>
+                    }
+                        
+                        @for (artist of item.track.artists; track $index) {
+                            @if ($index === 0) {
+                                <span class="badge badge-danger bg-success m-1">{{artist.name}}</span>
+                            }@else{
+
+                            
+                            <span class="badge badge-primary bg-info m-1">{{artist.name}}</span>
+                            }
+                        }
+                    </td>
+                    <td>{{item.track.album.name}}<br>
+                        {{item.track.album.album_type}}
+                    </td>
+                    
+                    <td style="width: 30%" ><iframe [src]="getIframeUrl(item)" class="w-100" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}

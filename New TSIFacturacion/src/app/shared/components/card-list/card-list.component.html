@@ -1,0 +1,18 @@
+@if (!TopCanciones) {
+    <div class="alert alert-warning">
+        No hay canciones para mostrar
+    </div>
+}@else{
+    <div class="row">
+        @for (item of TopCanciones.tracks.items; track $index) {
+                    <div class="col-md-4 col-sm-6">
+                        <gifs-card [item]="item"></gifs-card>
+                    </div>
+        }
+          
+            
+        
+</div>               
+                                   
+       
+}

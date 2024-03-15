@@ -1,0 +1,4 @@
+Rojo #D90000
+Verde #78D500
+Amarillo #ECE023
+Azul #0063D5

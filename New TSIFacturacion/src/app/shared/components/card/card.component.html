@@ -1,0 +1,23 @@
+
+    <div class="card mb-2 mr-2 ml-2 text-center"  style="background-color: #101214;" >
+        <img class="card-img-top" [src]="item.album.images[0].url" alt="Card image">
+        <div class="card-body text-light">
+          <h3 class="card-title">{{item.name}}</h3>
+          <h4> @for (artist of item.artists; track $index) {
+            
+            @if ($index === 0) {
+             <span class="badge badge-primary bg-success m-1">{{artist.name}}</span>
+            }@else{
+            <span class="badge badge-primary bg-info m-1">{{artist.name}}</span>}
+          }
+        </h4>
+          <!--<a [routerLink]="['/countries/by', item.cca3]" class="btn btn-primary stretched-link text-light"></a>
+          -->
+          
+            <iframe [src]="urlP" class="w-100" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        
+        </div>
+    </div>
+
+
+   
