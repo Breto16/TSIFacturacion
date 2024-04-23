@@ -15,6 +15,7 @@ import { ProductosComponent } from './pages/consultas/productos/productos.compon
 import { VentaCrudaComponent } from './pages/consultas/venta-cruda/venta-cruda.component';
 import { VentaTotalComponent } from './pages/consultas/venta-total/venta-total.component';
 import { ProductoComponent } from './pages/consultas/producto/producto.component';
+import { FacturaComponent } from './pages/factura/factura.component';
 
 
 export const routes: Routes = [
@@ -32,7 +33,18 @@ export const routes: Routes = [
     },
     {
         path:       'facturas',
-        component:  FacturasComponent
+        component:  FacturaComponent,
+        children: [        
+            {
+                path:   'alb/:id',
+                component:  FacturaComponent
+            },
+            {
+                path:   '**',
+                redirectTo: 'mesas'
+            }
+        ]
+    
     },
     {
         path:       'cierre',
